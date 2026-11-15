@@ -1,0 +1,19 @@
+---
+description: Never add Cursor or any Co-authored-by trailer to git commits
+alwaysApply: true
+---
+
+# No commit co-authors
+
+When creating or amending git commits in this repository:
+
+- Do **not** add any `Co-authored-by:` trailer
+- Do **not** attribute commits to Cursor, cursoragent, or any AI identity
+- Commit author and committer must remain the human git user only (`FinSage-max` / configured `user.name` + `user.email`)
+- If a commit message template or hook injects `Co-authored-by: Cursor <cursoragent@cursor.com>`, strip it before finishing the commit (rewrite with `git commit-tree` / amend with `--no-verify` if needed)
+
+Example of what must never appear in a commit message:
+
+```text
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
